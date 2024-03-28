@@ -6,16 +6,13 @@ export default function runFtlCommand() {
   return new Promise<boolean>(async (resolve, reject) => {
     const editor = vscode.window.activeTextEditor;
     if (!editor) {
-      reject("no editor");
+      reject("no file open");
       return;
     }
     const document = editor.document;
 
     // 判断file类型
-    if (
-      document.languageId !== "plaintext" ||
-      !document.fileName.endsWith(".ftl")
-    ) {
+    if (!document.fileName.endsWith(".ftl")) {
       reject("file is not a .ftl file");
       return;
     }
