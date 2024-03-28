@@ -1,71 +1,52 @@
-# freemarker-tester README
+## FreeMarker Tester
 
-This is the README for your extension "freemarker-tester". After writing up a brief description, we recommend including the following sections.
+freemarker 测试工具，调用https://try.freemarker.apache.org网站接口进行测试，目前版本为v2.3.32.
 
-## Features
+## How to use
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+> 准备 demo.ftl 和 demo.ftl.json 文件
+> demo.ftl 和 demo.ftl.json 须在同一文件夹 demo 可改为其他名称
 
-For example if there is an image subfolder under your extension project workspace:
+demo.ftl
 
-\!\[feature X\]\(images/feature-x.png\)
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+  </head>
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+  <body>
+    <main>${msg}</main>
+  </body>
+</html>
+```
 
-## Requirements
+demo.ftl.json
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+> FmTestOutputFileExtension 主要配置输出文件后缀，默认为 txt
 
-## Extension Settings
+```json
+{ "title": "test", "msg": "hello world", "FmTestOutputFileExtension": "html" }
+```
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+> 点击左下角 run ftl 输出如下
 
-For example:
+demo.ftl.result.html
 
-This extension contributes the following settings:
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+  </head>
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+  <body>
+    <main>hello world</main>
+  </body>
+</html>
+```
