@@ -14,6 +14,10 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "repository": {
+    "url": "https://github.com/kongchenhui/freemarker-tester-vscode"
+  },
+  "license": "MIT",
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
