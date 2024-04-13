@@ -18,10 +18,26 @@
   "contributes": {
     "commands": [
       {
-        "command": "ftl-test.run",
-        "title": "ftl test"
+        "command": "fm-test.run",
+        "title": "FreeMarker Run",
+        "icon": "$(run)"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "fm-test.run",
+        "key": "ctrl+alt+shift+r"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "editorLangId == ftl",
+          "command": "fm-test.run",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",

@@ -2,27 +2,26 @@ import * as vscode from "vscode";
 import runFtlCommand from "./command/run";
 
 export function activate(context: vscode.ExtensionContext) {
-  // 设置按钮
-  const runButton = vscode.window.createStatusBarItem(
+  // 设置状态
+  const status = vscode.window.createStatusBarItem(
     vscode.StatusBarAlignment.Left
   );
-  runButton.text = "$(play) Run FTL";
-  runButton.tooltip = "Run your FTL";
-  runButton.command = "fm-test.run";
-  runButton.show();
+  status.text = "$(sync~spin) FreeMarker Running";
 
-  // 注册命令
-  let disposable = vscode.commands.registerCommand("fm-test.run", () => {
-    runButton.text = "$(sync~spin) Running";
-    runButton.command = undefined;
-    runFtlCommand()
-      .catch((error: any) => {
-        vscode.window.showErrorMessage(error);
-      })
-      .finally(() => {
-        runButton.text = "$(play) Run FTL";
-        runButton.command = "fm-test.run";
-      });
+  let running = false;
+  let disposable = vscode.commands.registerCommand("fm-test.run", async () => {
+    if (!running) {
+      status.show();
+      running = true;
+      runFtlCommand()
+        .catch((error: any) => {
+          error && vscode.window.showErrorMessage(error);
+        })
+        .finally(() => {
+          status.hide();
+          running = false;
+        });
+    }
   });
 
   context.subscriptions.push(disposable);

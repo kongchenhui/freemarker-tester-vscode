@@ -32,7 +32,7 @@ demo.ftl.json
 { "title": "test", "msg": "hello world", "FmTestOutputFileExtension": "html" }
 ```
 
-> 点击左下角 run ftl 输出如下
+> 点击 编辑器右上角运行按钮( 或使用快捷键 ctrl + shift + alt + R ) 输出如下
 
 demo.ftl.result.html
 
