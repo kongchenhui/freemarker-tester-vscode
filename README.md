@@ -4,10 +4,10 @@ freemarker 测试工具，调用 https://try.freemarker.apache.org 网站接口�
 
 ## How to use
 
-> 准备 demo.ftl 和 demo.ftl.json 文件
-> demo.ftl 和 demo.ftl.json 须在同一文件夹 demo 可改为其他名称
+> 准备 demo.html.ftl 和 demo.html.ftl.json 文件
+> demo.html.ftl 和 demo.html.ftl.json 须在同一文件夹 demo 可改为其他名称
 
-demo.ftl
+demo.html.ftl
 
 ```html
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ demo.ftl
 </html>
 ```
 
-demo.ftl.json
+demo.html.ftl.json
 
 > FmTestOutputFileExtension 主要配置输出文件后缀，默认为 txt
 
@@ -34,7 +34,7 @@ demo.ftl.json
 
 > 点击 编辑器右上角运行按钮( 或使用快捷键 ctrl + shift + alt + R ) 输出如下
 
-demo.ftl.result.html
+demo.html
 
 ```html
 <!DOCTYPE html>
