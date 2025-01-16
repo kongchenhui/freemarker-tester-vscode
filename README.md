@@ -1,11 +1,11 @@
 ## FreeMarker Tester
 
-freemarker 测试工具，调用 https://try.freemarker.apache.org 网站接口进行测试，目前版本为 v2.3.32.
+freemarker 测试工具，调用 https://try.freemarker.apache.org 网站接口进行测试，目前版本为 2.3.34 .
 
 ## How to use
 
 > 准备 demo.html.ftl 和 demo.html.ftl.json 文件
-> demo.html.ftl 和 demo.html.ftl.json 须在同一文件夹 demo 可改为其他名称
+> demo.html.ftl 和 demo.html.ftl.json 须在同一文件夹 demo.html 可改为其他名称
 
 demo.html.ftl
 
@@ -29,7 +29,7 @@ demo.html.ftl.json
 > FmTestOutputFileExtension 主要配置输出文件后缀，默认为 txt
 
 ```json
-{ "title": "test", "msg": "hello world", "FmTestOutputFileExtension": "html" }
+{ "title": "test", "msg": "hello world" }
 ```
 
 > 点击 编辑器右上角运行按钮( 或使用快捷键 ctrl + shift + alt + R ) 输出如下
