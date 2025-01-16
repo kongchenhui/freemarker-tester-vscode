@@ -1,10 +1,10 @@
 # Change Log
 
-## [0.0.4]
+## 0.0.5 - 2025-01-16
 
 ### Changed
 
-- 废弃在 json 中通过 FmTestOutputFileExtension 配置生成文件名的配置方式
+- 废弃在 json 中通过配置 FmTestOutputFileExtension 字段生成文件名的方式
 - 生成文件名为模板文件去除".ftl"的部分（demo.html.ftl -> demo.html）
 
 ### Added

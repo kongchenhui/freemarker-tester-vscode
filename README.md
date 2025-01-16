@@ -1,6 +1,6 @@
 ## FreeMarker Tester
 
-freemarker 测试工具，调用 https://try.freemarker.apache.org 网站接口进行测试，目前版本为 2.3.34 .
+freemarker 测试工具，调用 https://try.freemarker.apache.org 网站接口进行测试。
 
 ## How to use
 
@@ -25,8 +25,6 @@ demo.html.ftl
 ```
 
 demo.html.ftl.json
-
-> FmTestOutputFileExtension 主要配置输出文件后缀，默认为 txt
 
 ```json
 { "title": "test", "msg": "hello world" }
