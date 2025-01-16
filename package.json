@@ -41,6 +41,16 @@
           "group": "navigation"
         }
       ]
+    },
+    "configuration": {
+      "title": "FreeMarker Tester",
+      "properties": {
+        "freeMarker-tester.apiUrl": {
+          "type": "string",
+          "default": "https://try.freemarker.apache.org/api/execute",
+          "description": "%freeMarker-tester.apiUrl.description%"
+        }
+      }
     }
   },
   "scripts": {

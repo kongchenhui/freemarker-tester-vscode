@@ -1,0 +1,3 @@
+{
+  "freeMarker-tester.apiUrl.description": "发送ftl模板和数据的目标URL"
+}
