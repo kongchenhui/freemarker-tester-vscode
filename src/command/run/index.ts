@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as fs from "fs/promises";
 import { execute } from "./execute";
+import { fileIsExist } from "../../utils/file";
 
 export default function runFtlCommand() {
   return new Promise<boolean>(async (resolve, reject) => {
@@ -18,26 +19,28 @@ export default function runFtlCommand() {
     }
 
     const filePath = document.fileName;
+    const outputPath = filePath.replace(/\.ftl$/g, "");
+    const jsonPath = `${filePath}.json`;
+    let jsonStr = "{}";
 
     try {
       // 读取当前模板
       const template = await fs.readFile(filePath, "utf8");
 
-      // 读取JSON 文件名为 <模板名>.json
-      const json = await fs.readFile(filePath + ".json", "utf8");
+      if (!(await fileIsExist(jsonPath))) {
+        // 创建文件
+        fs.writeFile(jsonPath, jsonStr, "utf8");
+      } else {
+        jsonStr = await fs.readFile(jsonPath, "utf8");
+      }
 
-      const parse = JSON.parse(json);
+      const parse = JSON.parse(jsonStr);
 
       const res = await execute(template, parse);
 
-      // 路径当前文件夹
-      await fs.writeFile(
-        `${filePath}.result.${parse?.FmTestOutputFileExtension ?? ".txt"}`,
-        res,
-        "utf8"
-      );
+      await fs.writeFile(outputPath, res, "utf8");
     } catch (error: any) {
-      reject("error! " + error?.message ?? "");
+      reject("error! " + (error?.message ?? ""));
     }
 
     resolve(true);
