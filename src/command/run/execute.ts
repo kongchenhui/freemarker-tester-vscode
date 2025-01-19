@@ -1,3 +1,5 @@
+import { getConfiguration } from '../../common/getConfiguration';
+
 /**
  * 运行模板并使用提供的JSON数据返回结果。
  *
@@ -20,14 +22,15 @@ export async function execute(template: string, json: object): Promise<string> {
     template: template,
     dataModel: dataStr,
   };
-  const response = await fetch(
-    "https://try.freemarker.apache.org/api/execute",
-    {
-      body: JSON.stringify(data),
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    }
-  );
+  const url =
+    getConfiguration("apiUrl") ||
+    "https://try.freemarker.apache.org/api/execute";
+
+  const response = await fetch(url, {
+    body: JSON.stringify(data),
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
   const res = JSON.parse(await response.text());
   // 处理返回数据
   if (res.result) {

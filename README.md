@@ -2,7 +2,7 @@
 
 freemarker 测试工具，调用 https://try.freemarker.apache.org 网站接口进行测试。
 
-## How to use
+## 如何使用
 
 > 准备 demo.html.ftl 和 demo.html.ftl.json 文件
 > demo.html.ftl 和 demo.html.ftl.json 须在同一文件夹 demo.html 可改为其他名称
@@ -48,3 +48,9 @@ demo.html
   </body>
 </html>
 ```
+
+## 配置项
+
+在设置中搜索`freeMarker-tester`可以修改以下配置项
+
+- `Api Url` : 发送ftl模板和数据的目标URL，默认为`https://try.freemarker.apache.org/api/execute`。可以修改为自己部署的ftl解析服务，结果需要在响应体的'result'字段中返回。
