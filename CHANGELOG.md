@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.6 - 2025-01-19
+
+### Added
+
+- 支持配置 apiUrl 和 extraParams
+
 ## 0.0.5 - 2025-01-16
 
 ### Changed

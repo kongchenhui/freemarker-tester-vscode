@@ -51,6 +51,20 @@ demo.html
 
 ## 配置项
 
-在设置中搜索`freeMarker-tester`可以修改以下配置项
+在设置中搜索`freemarker-tester`可以修改以下配置项
 
-- `Api Url` : 发送ftl模板和数据的目标URL，默认为`https://try.freemarker.apache.org/api/execute`。可以修改为自己部署的ftl解析服务，结果需要在响应体的'result'字段中返回。
+- `Api Url` : 发送 ftl 模板和数据的目标 URL，默认为`https://try.freemarker.apache.org/api/execute`。可以修改为自己部署的 ftl 解析服务，结果需要在响应体的'result'字段中返回。
+
+- `Extra Params` : api 的 body 携带的参数，在 settings.json 中配置，默认值如下：
+
+```
+{
+  "freemarker-tester.extraParams": {
+    "outputFormat": "undefined",
+    "locale": "en_US",
+    "timeZone": "America/Los_Angeles",
+    "tagSyntax": "squareBracket",
+    "interpolationSyntax": "legacy",
+  },
+}
+```
