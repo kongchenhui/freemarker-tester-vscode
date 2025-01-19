@@ -45,10 +45,14 @@
     "configuration": {
       "title": "FreeMarker Tester",
       "properties": {
-        "freeMarker-tester.apiUrl": {
+        "freemarker-tester.apiUrl": {
           "type": "string",
           "default": "https://try.freemarker.apache.org/api/execute",
-          "description": "%freeMarker-tester.apiUrl.description%"
+          "description": "%freemarker-tester.apiUrl.description%"
+        },
+        "freemarker-tester.extraParams": {
+          "type": "object",
+          "description": "%freemarker-tester.extraParams.description%"
         }
       }
     }

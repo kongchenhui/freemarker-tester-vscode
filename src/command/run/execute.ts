@@ -1,4 +1,5 @@
-import { getConfiguration } from '../../common/getConfiguration';
+import { getConfiguration } from "../../common/getConfiguration";
+import { DEFAULT_API_URL, DEFAULT_EXTRA_PARAMS } from "../../const/default";
 
 /**
  * 运行模板并使用提供的JSON数据返回结果。
@@ -8,6 +9,7 @@ import { getConfiguration } from '../../common/getConfiguration';
  * @return {Promise<string>} 运行模板的结果
  */
 export async function execute(template: string, json: object): Promise<string> {
+  // 处理dataModel
   const dataStr = Object.entries(json).reduce((acc, [key, value]) => {
     if (typeof value === "string") {
       return (acc += `${key}="${value}"\n`);
@@ -17,15 +19,16 @@ export async function execute(template: string, json: object): Promise<string> {
       return (acc += `${key}=${value}\n`);
     }
   }, "");
-  // 处理https://try.freemarker.apache.org/api/execute所需的数据
+  const extraParamsConfig = getConfiguration("extraParams");
+  const extraParams =
+    typeof extraParamsConfig === "object" ? extraParamsConfig : {};
   const data = {
+    ...DEFAULT_EXTRA_PARAMS,
+    ...extraParams,
     template: template,
     dataModel: dataStr,
   };
-  const url =
-    getConfiguration("apiUrl") ||
-    "https://try.freemarker.apache.org/api/execute";
-
+  const url = getConfiguration("apiUrl") || DEFAULT_API_URL;
   const response = await fetch(url, {
     body: JSON.stringify(data),
     method: "POST",
