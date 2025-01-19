@@ -2,7 +2,7 @@ export const DEFAULT_EXTRA_PARAMS = {
   outputFormat: "undefined",
   locale: "en_US",
   timeZone: "America/Los_Angeles",
-  tagSyntax: "squareBracket",
+  tagSyntax: "angleBracket",
   interpolationSyntax: "legacy",
 };
 
