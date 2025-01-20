@@ -1,4 +1,5 @@
 {
   "freemarker-tester.apiUrl.description": "Destination api url for sending ftl templates and data. Result should be returned in 'result' field of response body.",
-  "freemarker-tester.extraParams.description": "Additional parameters are passed into the body of the API."
+  "freemarker-tester.extraParams.description": "Additional parameters are passed into the body of the API.",
+  "freemarker-tester.runOnSave.description": "Run on save"
 }

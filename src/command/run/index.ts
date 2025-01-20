@@ -3,18 +3,11 @@ import * as fs from "fs/promises";
 import { execute } from "./execute";
 import { fileIsExist } from "../../utils/file";
 
-export default function runFtlCommand() {
+export default function runFtlCommand(document: vscode.TextDocument) {
   return new Promise<boolean>(async (resolve, reject) => {
-    const editor = vscode.window.activeTextEditor;
-    if (!editor) {
-      reject("");
-      return;
-    }
-    const document = editor.document;
-
     // 判断file类型
     if (!document.fileName.endsWith(".ftl")) {
-      reject("");
+      reject("only support ftl file");
       return;
     }
 
@@ -26,6 +19,10 @@ export default function runFtlCommand() {
     try {
       // 读取当前模板
       const template = await fs.readFile(filePath, "utf8");
+
+      if (!template.trim()) {
+        throw new Error("template is empty");
+      }
 
       if (!(await fileIsExist(jsonPath))) {
         // 创建文件
@@ -40,7 +37,9 @@ export default function runFtlCommand() {
 
       await fs.writeFile(outputPath, res, "utf8");
     } catch (error: any) {
-      reject("error! " + (error?.message ?? ""));
+      const message = `[ERROR] ${error?.message ?? ""}`;
+      reject(message);
+      return;
     }
 
     resolve(true);

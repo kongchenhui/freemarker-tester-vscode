@@ -57,14 +57,16 @@ demo.html
 
 - `Extra Params` : api 的 body 携带的参数，在 settings.json 中配置，默认值如下：
 
-```
+```json
 {
   "freemarker-tester.extraParams": {
     "outputFormat": "undefined",
     "locale": "en_US",
     "timeZone": "America/Los_Angeles",
     "tagSyntax": "angleBracket",
-    "interpolationSyntax": "legacy",
-  },
+    "interpolationSyntax": "legacy"
+  }
 }
 ```
+
+- `Run On Save` : 是否在保存时自动运行，默认为`false`。

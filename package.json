@@ -53,6 +53,11 @@
         "freemarker-tester.extraParams": {
           "type": "object",
           "description": "%freemarker-tester.extraParams.description%"
+        },
+        "freemarker-tester.runOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "%freemarker-tester.runOnSave.description%"
         }
       }
     }

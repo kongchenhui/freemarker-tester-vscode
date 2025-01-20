@@ -1,4 +1,5 @@
 {
   "freemarker-tester.apiUrl.description": "发送ftl模板和数据的目标URL，结果需要在响应体的'result'字段中返回。",
-  "freemarker-tester.extraParams.description": "附加参数，传入api的body中。"
+  "freemarker-tester.extraParams.description": "附加参数，传入api的body中。",
+  "freemarker-tester.runOnSave.description": "在保存时运行"
 }
