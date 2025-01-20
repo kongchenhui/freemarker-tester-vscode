@@ -7,3 +7,5 @@ export const DEFAULT_EXTRA_PARAMS = {
 };
 
 export const DEFAULT_API_URL = "https://try.freemarker.apache.org/api/execute";
+
+export const DEFAULT_RUN_ON_SAVE = false;

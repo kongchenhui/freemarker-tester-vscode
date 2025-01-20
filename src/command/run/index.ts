@@ -3,18 +3,11 @@ import * as fs from "fs/promises";
 import { execute } from "./execute";
 import { fileIsExist } from "../../utils/file";
 
-export default function runFtlCommand() {
+export default function runFtlCommand(document: vscode.TextDocument) {
   return new Promise<boolean>(async (resolve, reject) => {
-    const editor = vscode.window.activeTextEditor;
-    if (!editor) {
-      reject("");
-      return;
-    }
-    const document = editor.document;
-
     // 判断file类型
     if (!document.fileName.endsWith(".ftl")) {
-      reject("");
+      reject("only support ftl file");
       return;
     }
 
@@ -40,7 +33,9 @@ export default function runFtlCommand() {
 
       await fs.writeFile(outputPath, res, "utf8");
     } catch (error: any) {
-      reject("error! " + (error?.message ?? ""));
+      const message = `error! ${error?.message ?? ""}`;
+      reject(message);
+      return;
     }
 
     resolve(true);

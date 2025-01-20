@@ -5,6 +5,8 @@ interface GetConfiguration {
   (key: "apiUrl"): string | undefined;
   /** 获取当前插件的extraParams */
   (key: "extraParams"): object | undefined;
+  /** 获取当前插件的runOnSave */
+  (key: "runOnSave"): boolean | undefined;
 }
 
 /**
