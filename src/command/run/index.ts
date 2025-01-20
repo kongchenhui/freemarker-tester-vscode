@@ -20,6 +20,10 @@ export default function runFtlCommand(document: vscode.TextDocument) {
       // 读取当前模板
       const template = await fs.readFile(filePath, "utf8");
 
+      if (!template.trim()) {
+        throw new Error("template is empty");
+      }
+
       if (!(await fileIsExist(jsonPath))) {
         // 创建文件
         fs.writeFile(jsonPath, jsonStr, "utf8");
@@ -33,7 +37,7 @@ export default function runFtlCommand(document: vscode.TextDocument) {
 
       await fs.writeFile(outputPath, res, "utf8");
     } catch (error: any) {
-      const message = `error! ${error?.message ?? ""}`;
+      const message = `[ERROR] ${error?.message ?? ""}`;
       reject(message);
       return;
     }
