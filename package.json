@@ -2,7 +2,7 @@
   "name": "freemarker-tester",
   "displayName": "FreeMarker Tester",
   "description": "freemarker 测试",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "engines": {
     "vscode": "^1.87.0"
   },

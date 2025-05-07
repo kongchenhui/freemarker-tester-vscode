@@ -30,14 +30,14 @@ export function activate(context: vscode.ExtensionContext) {
 
   const runCommand = vscode.commands.registerCommand("fm-test.run", () => {
     const document = vscode.window.activeTextEditor?.document;
-    if (document && /.ftl$/.test(document.fileName)) {
+    if (document && /\.ftl$/.test(document.fileName)) {
       run(document);
     }
   });
 
   const watchSave = vscode.workspace.onDidSaveTextDocument((document) => {
     const runOnSave = getConfiguration("runOnSave") ?? DEFAULT_RUN_ON_SAVE;
-    if (runOnSave && /.ftl$/.test(document.fileName)) {
+    if (runOnSave && /\.ftl$/.test(document.fileName)) {
       run(document);
     }
   });
